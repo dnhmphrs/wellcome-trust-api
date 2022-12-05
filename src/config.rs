@@ -1,8 +1,6 @@
 use rustls::{ClientConfig, OwnedTrustAnchor, RootCertStore};
 
-// config goes beyond my knowledge of rust
-// config unchanged from example in: https://github.com/actix/examples/tree/master/https-tls/awc-https
-
+// client config unchanged from example in: https://github.com/actix/examples/tree/master/https-tls/awc-https
 /// Create simple rustls client config from root certificates.
 pub fn client_config() -> ClientConfig {
   let mut root_store = RootCertStore::empty();
@@ -19,3 +17,4 @@ pub fn client_config() -> ClientConfig {
       .with_root_certificates(root_store)
       .with_no_client_auth()
 }
+

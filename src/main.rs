@@ -1,46 +1,14 @@
-use std::{sync::Arc, time::Instant};
+use std::{sync::Arc};
 
-use actix_web::{get, middleware, web::Data, App, HttpResponse, HttpServer};
+use actix_web::{middleware, web::Data, App, HttpServer};
 use awc::{http::header, Client, Connector};
 
 mod config;
+mod endpoint;
 
 // CONSTS
-const MAP_URL: &str =
-    "https://code-challenge-a.wellcome-data.org/api";
-
 const TOKEN: &str =
     "Bearer aGV5bm9sb29raW5naW5oZXJldGhpc2lzc2VjcmV0c2hoaGg="; // should be in .env file
-
-// DEFINE ENDPOINT
-#[get("/")]
-async fn fetch_data(client: Data<Client>) -> HttpResponse {
-    let start = Instant::now();
-
-    let mut res = client
-        .get(MAP_URL)
-        .send()
-        .await
-        .unwrap();
-
-    if !res.status().is_success() {
-        log::error!("Wellcome API did not return expected data");
-        return HttpResponse::InternalServerError().finish();
-    }
-
-    let payload = res
-        .body()
-        .await
-        .unwrap();
-
-    log::info!(
-        "it took {}ms to download api data to memory",
-        start.elapsed().as_millis()
-    );
-
-    HttpResponse::Ok()
-        .body(payload)
-}
 
 // DEFINE WEB SERVER && CLIENT
 #[actix_web::main]
@@ -63,7 +31,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(middleware::Logger::default())
             .app_data(Data::new(client))
-            .service(fetch_data)
+            .service(endpoint::fetch_data)
     })
     .bind(("127.0.0.1", 8080))?
     .workers(1)
