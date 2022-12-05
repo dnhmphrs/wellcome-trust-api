@@ -895,6 +895,7 @@ dependencies = [
  "log",
  "mime",
  "rustls",
+ "serde_json",
  "webpki-roots",
 ]
 
