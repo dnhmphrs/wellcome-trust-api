@@ -34,7 +34,7 @@ pub async fn fetch_data(client: Data<Client>) -> HttpResponse {
         start.elapsed().as_millis()
     );
 
-    create_summary_report(&payload);
+    create_sumulative_report(&payload);
 
     HttpResponse::Ok()
         .body(payload)
