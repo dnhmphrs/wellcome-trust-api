@@ -29,7 +29,7 @@ pub async fn fetch_data(client: Data<Client>) -> HttpResponse {
         // increase payload limit size beyond default
         .limit(100_000_000) // 100MB
         .await
-        .expect("Wellcome API Error");
+        .expect("Wellcome API Error, Overflow Memory Limit.");
 
     log::info!(
         "it took {}ms to download api data to memory",
