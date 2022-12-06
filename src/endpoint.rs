@@ -3,7 +3,7 @@ use std::{str, time::Instant};
 use actix_web::{get, web::Data, HttpResponse};
 use awc::{Client};
 
-mod sumulativeReport;
+mod sumulative_report;
 
 // CONSTS
 const MAP_URL: &str =
@@ -37,7 +37,7 @@ pub async fn fetch_data(client: Data<Client>) -> HttpResponse {
         start.elapsed().as_millis()
     );
 
-    sumulativeReport::create_sumulative_report(&payload);
+    sumulative_report::create_sumulative_report(&payload);
 
     HttpResponse::Ok()
         .body(payload)
