@@ -1,4 +1,4 @@
-use std::{str, time::Instant};
+use std::{str, time::Instant, time::Duration};
 
 use actix_web::{get, web::Data, HttpResponse};
 use awc::{Client};
@@ -6,7 +6,7 @@ use serde_json::Value;
 
 // CONSTS
 const MAP_URL: &str =
-    "https://code-challenge-a.wellcome-data.org/api";
+    "https://code-challenge-a.wellcome-data.org/api?limit=-1";
 
 // GET - WELLCOME API ENDPOINT
 #[get("/")]
@@ -26,8 +26,10 @@ pub async fn fetch_data(client: Data<Client>) -> HttpResponse {
 
     let payload = res
         .body()
+        // increase payload limit size beyond default
+        .limit(100_000_000) // 100MB
         .await
-        .unwrap();
+        .expect("Wellcome API Error");
 
     log::info!(
         "it took {}ms to download api data to memory",
@@ -47,10 +49,10 @@ fn create_sumulative_report(data: &actix_web::web::Bytes) {
     // get json from data
     let json: Value = serde_json::from_slice(data).unwrap();
 
-    for i in 0..json["items"].as_array().expect("Array Expected").len() {
-        log::info!("{}", i);
-        log::info!("{}", json["items"][i]);
-    }
+    // for i in 0..json["items"].as_array().expect("Array Expected").len() {
+    //     log::info!("{}", i);
+    //     log::info!("{}", json["items"][i]);
+    // }
 
     // The total number of submitted, approved and rejected applications per research area
 

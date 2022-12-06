@@ -1,4 +1,5 @@
 use std::{sync::Arc};
+use std::env;
 
 use actix_web::{middleware, web::Data, App, HttpServer};
 use awc::{http::header, Client, Connector};
@@ -13,6 +14,10 @@ const TOKEN: &str =
 // DEFINE WEB SERVER && CLIENT
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    
+    // SET BACKTRACE FOR DEBUGGING
+    env::set_var("RUST_BACKTRACE", "1");
+
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
 
     let client_tls_config = Arc::new(config::client_config());
