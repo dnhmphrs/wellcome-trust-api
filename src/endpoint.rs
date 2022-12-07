@@ -7,7 +7,7 @@ mod sumulative_report;
 
 // CONSTS
 const MAP_URL: &str =
-    "https://code-challenge-a.wellcome-data.org/api?limit=-1";
+    "https://code-challenge-a.wellcome-data.org/api?limit=100";
 
 // GET - WELLCOME API ENDPOINT
 #[get("/")]
@@ -37,7 +37,7 @@ pub async fn fetch_data(client: Data<Client>) -> HttpResponse {
         start.elapsed().as_millis()
     );
 
-    let output = sumulative_report::create_sumulative_report(&payload).expect("Issue proecssing payload");
+    let output = sumulative_report::create_sumulative_report(&payload).expect("Issue proecessing payload");
 
     HttpResponse::Ok()
         .content_type(ContentType::json())
