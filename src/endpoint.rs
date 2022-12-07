@@ -1,6 +1,6 @@
 use std::{str, time::Instant};
 
-use actix_web::{get, web::Data, HttpResponse};
+use actix_web::{get, web::Data, http::header::ContentType, HttpResponse};
 use awc::{Client};
 
 mod sumulative_report;
@@ -37,8 +37,9 @@ pub async fn fetch_data(client: Data<Client>) -> HttpResponse {
         start.elapsed().as_millis()
     );
 
-    sumulative_report::create_sumulative_report(&payload);
+    let output = sumulative_report::create_sumulative_report(&payload).expect("Issue proecssing payload");
 
     HttpResponse::Ok()
-        .body(payload)
+        .content_type(ContentType::json())
+        .body(output)
 }
