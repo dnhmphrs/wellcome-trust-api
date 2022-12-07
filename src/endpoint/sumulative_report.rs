@@ -1,5 +1,4 @@
-use serde_json::Value;
-use serde_json::Result;
+use serde_json::{Value, Result};
 use serde::Serialize;
 
 // CREATE SUMULATIVE REPORT
