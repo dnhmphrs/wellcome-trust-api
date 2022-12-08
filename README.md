@@ -1,11 +1,16 @@
 # wellcome-trust-api
 API for Wellcome Trust Code Challenge
 
-##  Python Build
-#### /python
+##  /python - Python Build
 
-##  Incomplete Rust Build
-#### /rust
+
+###  Run Locally (available at localhost:5000)
+```
+$ cd /src/python
+$ flask run
+```
+
+##  /rust - Incomplete Rust Build
 - Derived from: https://github.com/actix/examples/tree/master/https-tls/awc-https
 - Cargo is required to compile locally: https://www.rust-lang.org/tools/install
 
