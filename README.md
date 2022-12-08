@@ -3,7 +3,8 @@ API for Wellcome Trust Code Challenge
 
 ##  /python - Python Build
 - Rebuild in Python after Rust hurt my soul
-- Run Locally - available at localhost:5000
+- Run Local Server - available at localhost:5000
+- Current Date is set to 2021-12-31 to make the code run better, API data is out of date.
 
 ###  Run Local Server
 ```
