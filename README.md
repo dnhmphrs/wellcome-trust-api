@@ -2,9 +2,10 @@
 API for Wellcome Trust Code Challenge
 
 ##  /python - Python Build
+- Rebuild in Python to handle data structure manipulation
+- Run Locally, available at localhost:5000
 
-
-###  Run Locally (available at localhost:5000)
+###  Run Locally
 ```
 $ cd /src/python
 $ flask run
