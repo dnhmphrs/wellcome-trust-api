@@ -2,10 +2,10 @@
 API for Wellcome Trust Code Challenge
 
 ##  Python Build
-- /python
+#### /python
 
 ##  Incomplete Rust Build
-- /rust
+#### /rust
 - Derived from: https://github.com/actix/examples/tree/master/https-tls/awc-https
 - Cargo is required to compile locally: https://www.rust-lang.org/tools/install
 
