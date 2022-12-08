@@ -19,7 +19,7 @@ $ flask run
 ###  Cargo Commands
 
 ```
-% cd /rust
+$ cd /rust
 $ cargo build
 $ cargo run
 $ cargo clean
