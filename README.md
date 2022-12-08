@@ -5,7 +5,7 @@ API for Wellcome Trust Code Challenge
 - Rebuild in Python after Rust hurt my soul
 - Run Locally - available at localhost:5000
 
-###  Run Locally
+###  Run Local Server
 ```
 $ cd /src/python
 $ flask run
