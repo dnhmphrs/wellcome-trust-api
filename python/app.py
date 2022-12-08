@@ -40,8 +40,6 @@ def sumulative_report():
     endpoint = ENDPOINT
     headers = {"Authorization": AUTH_TOKEN}
 
-    # pprint(requests.get(endpoint, headers=headers).json())
-
     result = requests.get(endpoint, headers=headers).json()
 
     applications = result['items']
