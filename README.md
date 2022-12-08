@@ -8,7 +8,7 @@ API for Wellcome Trust Code Challenge
 
 ###  Run Local Server
 ```
-$ cd /src/python
+$ cd /python
 $ flask run
 ```
 
