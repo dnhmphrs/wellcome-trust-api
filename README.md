@@ -2,8 +2,8 @@
 API for Wellcome Trust Code Challenge
 
 ##  /python - Python Build
-- Rebuild in Python to handle data structure manipulation
-- Run Locally, available at localhost:5000
+- Rebuild in Python after Rust hurt my soul
+- Run Locally - available at localhost:5000
 
 ###  Run Locally
 ```
