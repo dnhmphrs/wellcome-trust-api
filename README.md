@@ -5,6 +5,7 @@ API for Wellcome Trust Code Challenge
 - Rebuild in Python after Rust hurt my soul
 - Run Local Server - available at localhost:5000
 - Current Date is set to 2021-12-31 to make the code run better, API data is out of date.
+- No Testing implented, and .env values stored in main file.
 
 ###  Run Local Server
 ```
