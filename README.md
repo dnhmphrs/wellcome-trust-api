@@ -15,6 +15,7 @@ $ flask run
 ##  /rust - Incomplete Rust Build
 - Derived from: https://github.com/actix/examples/tree/master/https-tls/awc-https
 - Cargo is required to compile locally: https://www.rust-lang.org/tools/install
+- Server/Client works, but data structure manipulation in rust was too hard so switched to python to complete challenge.
 
 ###  Cargo Commands
 
